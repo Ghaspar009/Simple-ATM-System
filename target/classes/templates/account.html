@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Account operations</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UFT-8" />
+
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/5.1.0/css/bootstrap.min.css}" />
+
+    <script th:src="@{/webjars/jquery/3.6.0/jquery.min.js}"></script>
+    <script th:src="@{/webjars/bootstrap/5.1.0/js/bootstrap.min.js}"></script>
+</head>
+<body>
+    <div class="form-actions" style="margin-top: 12px;">
+        <button type="button">
+            <a th:href="'/account/balance?id='+${#authentication.getPrincipal().getUserId()}">Balance</a>
+        </button>
+    </div>
+    <div class="form-actions" style="margin-top: 12px;">
+        <button type="button">
+            <a th:href="'/account/deposit?id='+${#authentication.getPrincipal().getUserId()}">Deposit</a>
+        </button>
+    </div>
+    <div class="form-actions" style="margin-top: 12px;">
+        <button type="button">
+            <a th:href="'/account/prepaid?id='+${#authentication.getPrincipal().getUserId()}">Prepaid</a>
+        </button>
+    </div>
+    <div class="form-actions" style="margin-top: 12px;">
+        <button type="button">
+            <a th:href="'/account/withdraw?id='+${#authentication.getPrincipal().getUserId()}">Withdraw</a>
+        </button>
+    </div>
+    <div class="form-actions" style="margin-top: 12px;">
+        <button type="button">
+            <a th:href="'/account/transfer?id='+${#authentication.getPrincipal().getUserId()}">Transfer</a>
+        </button>
+    </div>
+
+    <div class="form-actions" style="margin-top: 12px;">
+        <form action="#" th:action="@{/logout}" method="post">
+            <input type="submit" value="Logout" />
+        </form>
+    </div>
+
+</body>
+</html>
