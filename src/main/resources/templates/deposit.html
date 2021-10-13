@@ -15,7 +15,7 @@
             <input type="hidden" th:field="*{account}"/>
             <div class="form-group">
                 <label class="control-label">How much money do you wish to deposit: </label>
-                <input type="number" class="form-control" step='0.01' value='0.00' placeholder='0.00' th:value="${money}" id="money" name="money"/>
+                <input type="number" class="form-control" min="0" step='0.01' value='0.00' placeholder='0.00' th:value="${money}" id="money" name="money"/>
             </div>
             <div class="row">
                 <button type="submit" class="btn btn-default">Confirm</button>

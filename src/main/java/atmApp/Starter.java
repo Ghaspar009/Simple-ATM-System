@@ -45,5 +45,11 @@ public class Starter implements CommandLineRunner {
         account2.setTransferable(true);
         user2.setAccount(account2);
         bankRepository.save(account2);
+        User user3 = new User("Jola", passwordEncoder.encode("4321"), "USER");
+        userRepository.save(user3);
+        BankAccount account3 = new BankAccount(user, BigDecimal.valueOf(400.55));
+        account3.setTransferable(true);
+        user3.setAccount(account3);
+        bankRepository.save(account3);
     }
 }

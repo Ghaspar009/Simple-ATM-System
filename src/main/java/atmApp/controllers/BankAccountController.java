@@ -38,6 +38,9 @@ public class BankAccountController {
     public String transferMoney(@RequestParam("id") Long id, Model model) {
 
         List<User> transferableUsers = userRepository.findAll().stream().filter(u -> u.getAccount().isTransferable()).collect(Collectors.toList());
+        User user = userRepository.findById(id).get();
+        if(transferableUsers.contains(user))
+            transferableUsers.remove(user);
 
         userRepository.findById(id).ifPresent(o -> model.addAttribute("user", o));
         model.addAttribute("usersList", transferableUsers);
